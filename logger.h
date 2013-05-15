@@ -19,6 +19,8 @@ class Logger
 
     ~Logger ();
 
+    void open (string filename);
+
 
     // this is the type of std::cout
     typedef std::basic_ostream<char, std::char_traits<char> > CoutType;
@@ -31,9 +33,11 @@ class Logger
 
     
     Logger& operator << (const char* str);
-    Logger& operator << (string& str);
+    Logger& operator << (wchar_t* str);
+    Logger& operator << (string str);
     Logger& operator << (char c);
     Logger& operator << (int n);
+    Logger& operator << (unsigned int n);
     Logger& operator << (double d);
 
 

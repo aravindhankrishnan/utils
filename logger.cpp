@@ -38,6 +38,16 @@ Logger::~Logger ()
   ofile.close ();
 }
 
+
+void Logger::open (string filename)
+{
+  ofile.open (filename.c_str ());
+  if (!ofile) {
+    string error_msg = string ("Cannot open file ").append (filename);
+    throw std::runtime_error (error_msg);
+  }
+}
+
 Logger& Logger::operator << (StandardEndLine manip)
 {
   manip(std::cout);
@@ -52,7 +62,15 @@ Logger& Logger::operator << (const char* str)
   return *this;
 }
 
-Logger& Logger::operator << (string& str)
+
+Logger& Logger::operator << (wchar_t* str)
+{
+  cout << str;
+  ofile << str;
+  return *this;
+}
+
+Logger& Logger::operator << (string str)
 {
   cout << str;
   ofile << str;
@@ -67,6 +85,14 @@ Logger& Logger::operator << (char c)
 }
 
 Logger& Logger::operator << (int n)
+{
+  cout << n;
+  ofile << n;
+  return *this;
+}
+
+
+Logger& Logger::operator << (unsigned int n)
 {
   cout << n;
   ofile << n;
