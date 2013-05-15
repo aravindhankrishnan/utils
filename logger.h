@@ -33,8 +33,8 @@ class Logger
     Logger& operator << (const char* str);
     Logger& operator << (string& str);
     Logger& operator << (char c);
-    Logger& operator << (int c);
-    Logger& operator << (double c);
+    Logger& operator << (int n);
+    Logger& operator << (double d);
 
 
   private:
