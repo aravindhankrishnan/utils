@@ -17,23 +17,23 @@ class Timer
   public:
     Timer ()
     {
-      resolution_ = "milliseconds";
+      resolution = "milliseconds";
     }
 
-    Timer (string resolution)
+    Timer (const string in_resolution)
     {
-      resolution_ = resolution;
+      resolution = in_resolution;
     }
 
     void tic ()
     {
-      if (resolution_.compare ("seconds") == 0) {
+      if (resolution.compare ("seconds") == 0) {
         start = Bp::second_clock::local_time ();
       }
-      else if (resolution_.compare ("milliseconds") == 0) {
+      else if (resolution.compare ("milliseconds") == 0) {
         start = Bp::microsec_clock::local_time ();
       }
-      else if (resolution_.compare ("microseconds") == 0) {
+      else if (resolution.compare ("microseconds") == 0) {
         start = Bp::microsec_clock::local_time ();
       }
       else {
@@ -43,27 +43,42 @@ class Timer
 
     long toc () 
     {
-      if (resolution_.compare ("seconds") == 0) {
+      if (resolution.compare ("seconds") == 0) {
         end = Bp::second_clock::local_time ();
         return (end-start).total_seconds ();
       }
-      else if (resolution_.compare ("milliseconds") == 0) {
+      else if (resolution.compare ("milliseconds") == 0) {
         end = Bp::microsec_clock::local_time ();
         return (end-start).total_milliseconds ();
       }
-      else if (resolution_.compare ("microseconds") == 0) {
+      else if (resolution.compare ("microseconds") == 0) {
         end = Bp::microsec_clock::local_time ();
         return (end-start).total_microseconds ();
       }
     }
 
 
+    string getResolution ()
+    {
+      string res = "";
+      if (resolution.compare ("milliseconds") == 0) {
+        res = " msec";
+      }
+      else if (resolution.compare ("microseconds") == 0) {
+        res = " misec";
+      }
+      else if (resolution.compare ("seconds") == 0) {
+        res = " sec";
+      }
+      return res;
+    }
+
   private:
 
     Bp::ptime start;
     Bp::ptime end;
 
-    string resolution_;
+    string resolution;
 
 };
 
