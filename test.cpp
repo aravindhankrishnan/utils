@@ -3,14 +3,19 @@ using namespace std;
 
 #include "timer.h"
 #include "getfilename.h"
+#include "systemtime.h"
 
 int main (int argc, char *argv[])
 {
 
-  string basename = "test";
-  string extension = "txt";
+  string timestr = "";
+  utils::getSystemTime (timestr);
+  cout <<  timestr << endl;
 
-  cout << utils::getfilename (basename, extension) << endl;
+  //string basename = "test";
+  //string extension = "txt";
+
+  //cout << utils::getfilename (basename, extension) << endl;
 
 
   //string timer_resolution = "microseconds";
