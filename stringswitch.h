@@ -17,7 +17,12 @@
 #include <iostream>
 using namespace std;
 
-#define BEGINSTRINGSWITCH_(str) string _i_n_p_u_t_ = str; if (0) {
-#define CASE_(val) } else if (_i_n_p_u_t_.compare (val) == 0) {
+#define BEGINSTRINGSWITCH_(str) string& _i_n_p_u_t_ = str; if (0) {
+#define CASE_(val) } else if (_i_n_p_u_t_ == val) {
 #define DEFAULT  } else {
 #define ENDSTRINGSWITCH }
+
+#define BEGIN_GENERIC_SWITCH_(type, obj) type _i_n_p_u_t_ = obj; if (0) {
+#define CASE_(val) } else if (_i_n_p_u_t_ == val) {
+#define DEFAULT  } else {
+#define END_GENERIC_SWITCH }
