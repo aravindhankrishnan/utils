@@ -17,6 +17,8 @@ class Logger
 
     Logger (string& filename);
 
+    void init (string& filename);
+
     ~Logger ();
 
     void open (string filename);

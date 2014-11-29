@@ -2,13 +2,13 @@
 
 Logger::Logger ()
 {
-  filename = "log.txt";
-  ofile.open (filename.c_str ());
+  //filename = "log.txt";
+  //ofile.open (filename.c_str ());
 
-  if (!ofile) {
-    string error_msg = string ("Cannot open file ").append (filename);
-    throw std::runtime_error (error_msg);
-  }
+  //if (!ofile) {
+  //  string error_msg = string ("Cannot open file ").append (filename);
+  //  throw std::runtime_error (error_msg);
+  //}
 }
 
 Logger::Logger (const char* filename)
@@ -23,6 +23,17 @@ Logger::Logger (const char* filename)
 }
 
 Logger::Logger (string& filename)
+{
+  this->filename = filename;
+  ofile.open (filename.c_str ());
+
+  if (!ofile) {
+    string error_msg = string ("Cannot open file ").append (filename);
+    throw std::runtime_error (error_msg);
+  }
+}
+
+void Logger::init (string& filename)
 {
   this->filename = filename;
   ofile.open (filename.c_str ());
