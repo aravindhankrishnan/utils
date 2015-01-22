@@ -28,7 +28,7 @@ void getSystemTime (string& time_str)
   gettimeofday (&tv, &tz);
   tm = localtime (&tv.tv_sec);
   char buffer[80];
-  sprintf (buffer, "%02d:%02d:%02d:%03ld", tm->tm_hour, tm->tm_min, tm->tm_sec, (tv.tv_usec/1000));
+  sprintf (buffer, "%02d-%02d-%02d-%03ld", tm->tm_hour, tm->tm_min, tm->tm_sec, (tv.tv_usec/1000));
   time_str = buffer;
 }
 
