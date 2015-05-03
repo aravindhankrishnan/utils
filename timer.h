@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <exception>
+#include <cmath>
 using namespace std;
 
 #include <boost/date_time/posix_time/posix_time.hpp>
@@ -17,60 +18,61 @@ class Timer
   public:
     Timer ()
     {
-      resolution = "milliseconds";
     }
 
+    // just to maintain backward compatibility
     Timer (const string in_resolution)
     {
-      resolution = in_resolution;
     }
 
     void tic ()
     {
-      if (resolution.compare ("seconds") == 0) {
-        start = Bp::second_clock::local_time ();
-      }
-      else if (resolution.compare ("milliseconds") == 0) {
-        start = Bp::microsec_clock::local_time ();
-      }
-      else if (resolution.compare ("microseconds") == 0) {
-        start = Bp::microsec_clock::local_time ();
-      }
-      else {
-        throw std::runtime_error ("Invalid resolution type set in Timer .. ");
-      }
+      start = Bp::microsec_clock::local_time ();
     }
 
-    long toc () 
+    string toc () 
     {
-      if (resolution.compare ("seconds") == 0) {
-        end = Bp::second_clock::local_time ();
-        return (end-start).total_seconds ();
+      end = Bp::microsec_clock::local_time ();
+      long val = (end-start).total_microseconds ();
+
+      // 1 milli second = 1000 microseconds
+      // 1 second = 1000 milliseconds
+      // 1 min = 60 seconds
+      // 1 hour = 60 minutes
+
+      microseconds = val % 1000;
+      val /= 1000;
+      milliseconds = val % 1000;
+      val /= 1000;
+      seconds = val % 60;
+      val /= 60;
+      minutes = val % 60;
+      hours = val / 60;
+
+      ostringstream ostr;
+      
+      if (hours) {
+        ostr << hours << " hours ";
       }
-      else if (resolution.compare ("milliseconds") == 0) {
-        end = Bp::microsec_clock::local_time ();
-        return (end-start).total_milliseconds ();
+      if (minutes) {
+        ostr << minutes << " minutes ";
       }
-      else if (resolution.compare ("microseconds") == 0) {
-        end = Bp::microsec_clock::local_time ();
-        return (end-start).total_microseconds ();
+      if (seconds) {
+        ostr << seconds << " seconds ";
       }
+      if (milliseconds) {
+        ostr << milliseconds << " milliseconds ";
+      }
+      if (microseconds) {
+        ostr <<  microseconds << " microseconds.";
+      }
+      return ostr.str ();
     }
 
-
+    // just to maintain backward compatibility
     string getResolution ()
     {
-      string res = "";
-      if (resolution.compare ("milliseconds") == 0) {
-        res = " msec";
-      }
-      else if (resolution.compare ("microseconds") == 0) {
-        res = " misec";
-      }
-      else if (resolution.compare ("seconds") == 0) {
-        res = " sec";
-      }
-      return res;
+      return "";
     }
 
   private:
@@ -78,8 +80,11 @@ class Timer
     Bp::ptime start;
     Bp::ptime end;
 
-    string resolution;
-
+    long hours,
+         minutes,
+         seconds,
+         milliseconds,
+         microseconds;
 };
 
 
