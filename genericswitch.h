@@ -5,8 +5,8 @@ using namespace std;
 
 #define BEGIN_GENERIC_SWITCH_(type, obj) type& _i_n_p_u_t_ = obj; if (0) {
 #define CASE_(val) } else if (_i_n_p_u_t_ == val) {
-#define DEFAULT  } else {
-#define END_GENERIC_SWITCH }
+#define DEFAULT_  } else {
+#define END_GENERIC_SWITCH_ }
 
 // -------------- EXAMPLE 1 ----------
 // string str = "val3";
@@ -73,10 +73,10 @@ using namespace std;
 //    CASE_(MyClass (7, 7))
 //        cout << "Second ..\n";
 //
-//    DEFAULT
+//    DEFAULT_
 //        cout << "None ..\n";
 //
-//  END_GENERIC_SWITCH
+//  END_GENERIC_SWITCH_
 //
 //  return 0;
 //}
