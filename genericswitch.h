@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-using namespace std;
 
 #define BEGIN_GENERIC_SWITCH_(type, obj) type& _i_n_p_u_t_ = obj; if (0) {
 #define CASE_(val) } else if (_i_n_p_u_t_ == val) {
