@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
-using namespace std;
 
 class Logger
 {
@@ -15,13 +14,13 @@ class Logger
 
     Logger (const char* filename);
 
-    Logger (string& filename);
+    Logger (const std::string& filename);
 
-    void init (string& filename);
+    void init (const std::string& filename);
 
     ~Logger ();
 
-    void open (string filename);
+    void open (const std::string filename);
 
 
     // this is the type of std::cout
@@ -35,16 +34,15 @@ class Logger
 
     
     Logger& operator << (const char* str);
-    Logger& operator << (wchar_t* str);
-    Logger& operator << (string str);
-    Logger& operator << (char c);
-    Logger& operator << (int n);
-    Logger& operator << (unsigned int n);
-    Logger& operator << (double d);
-
+    Logger& operator << (const wchar_t* str);
+    Logger& operator << (const std::string str);
+    Logger& operator << (const char c);
+    Logger& operator << (const int n);
+    Logger& operator << (const unsigned int n);
+    Logger& operator << (const double d);
 
   private:
 
-    ofstream ofile;
-    string filename;
+    std::ofstream ofile;
+    std::string filename;
 };

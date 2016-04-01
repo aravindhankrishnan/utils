@@ -1,11 +1,10 @@
 #pragma once
 
 #include <string>
-using namespace std;
 
 namespace utils {
 
-string getfilename (const string basename, const string extension);
+std::string getfilename (const std::string basename, const std::string extension);
 
 
 }

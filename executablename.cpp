@@ -1,4 +1,5 @@
 #include "executablename.h"
+using namespace std;
 
 #include <unistd.h>
 

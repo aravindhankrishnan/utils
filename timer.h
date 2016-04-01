@@ -3,14 +3,11 @@
 #include <iostream>
 #include <exception>
 #include <cmath>
-using namespace std;
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 
 namespace utils
 {
-
-
   namespace Bp = boost::posix_time;
 
 class Timer
@@ -49,7 +46,7 @@ class Timer
       minutes = val % 60;
       hours = val / 60;
 
-      ostringstream ostr;
+      std::ostringstream ostr;
       
       if (hours) {
         ostr << hours << " hours ";
@@ -70,7 +67,7 @@ class Timer
     }
 
     // just to maintain backward compatibility
-    string getResolution ()
+    std::string getResolution ()
     {
       return "";
     }

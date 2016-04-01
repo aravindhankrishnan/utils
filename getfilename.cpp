@@ -1,5 +1,6 @@
 #include "getfilename.h"
 #include "systemtime.h"
+using namespace std;
 
 namespace utils {
 

@@ -4,13 +4,19 @@ using namespace std;
 #include "timer.h"
 #include "getfilename.h"
 #include "systemtime.h"
+#include "getbasepath.h"
+#include "getfilebasename.h"
 
 int main (int argc, char *argv[])
 {
+  string input = argv[1];
 
-  string timestr = "";
-  utils::getSystemTime (timestr);
-  cout <<  timestr << endl;
+  cout << utils::getbasepath (input) << endl;
+  cout << utils::getfilebasename (input) << endl;
+
+  //string timestr = "";
+  //utils::getSystemTime (timestr);
+  //cout <<  timestr << endl;
 
   //string basename = "test";
   //string extension = "txt";

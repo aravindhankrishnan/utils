@@ -15,9 +15,8 @@
 //  END_STRING_SWITCH
 
 #include <iostream>
-using namespace std;
 
-#define BEGIN_STRING_SWITCH_(str) string& _i_n_p_u_t_ = str; if (0) {
+#define BEGIN_STRING_SWITCH_(str) std::string& _i_n_p_u_t_ = str; if (0) {
 #define CASE_(val) } else if (_i_n_p_u_t_ == val) {
-#define DEFAULT  } else {
-#define END_STRING_SWITCH }
+#define DEFAULT_  } else {
+#define END_STRING_SWITCH_ }

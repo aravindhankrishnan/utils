@@ -1,4 +1,5 @@
 #include "logger.h"
+using namespace std;
 
 Logger::Logger ()
 {
@@ -22,7 +23,7 @@ Logger::Logger (const char* filename)
   }
 }
 
-Logger::Logger (string& filename)
+Logger::Logger (const string& filename)
 {
   this->filename = filename;
   ofile.open (filename.c_str ());
@@ -33,7 +34,7 @@ Logger::Logger (string& filename)
   }
 }
 
-void Logger::init (string& filename)
+void Logger::init (const string& filename)
 {
   this->filename = filename;
   ofile.open (filename.c_str ());
@@ -50,7 +51,7 @@ Logger::~Logger ()
 }
 
 
-void Logger::open (string filename)
+void Logger::open (const string filename)
 {
   ofile.close ();
   ofile.open (filename.c_str ());
@@ -78,7 +79,7 @@ Logger& Logger::operator << (const char* str)
 }
 
 
-Logger& Logger::operator << (wchar_t* str)
+Logger& Logger::operator << (const wchar_t* str)
 {
   cout << str;
   ofile << str;
@@ -86,7 +87,7 @@ Logger& Logger::operator << (wchar_t* str)
   return *this;
 }
 
-Logger& Logger::operator << (string str)
+Logger& Logger::operator << (const string str)
 {
   cout << str;
   ofile << str;
@@ -94,7 +95,7 @@ Logger& Logger::operator << (string str)
   return *this;
 }
 
-Logger& Logger::operator << (char c)
+Logger& Logger::operator << (const char c)
 {
   cout << c;
   ofile << c;
@@ -102,7 +103,7 @@ Logger& Logger::operator << (char c)
   return *this;
 }
 
-Logger& Logger::operator << (int n)
+Logger& Logger::operator << (const int n)
 {
   cout << n;
   ofile << n;
@@ -111,7 +112,7 @@ Logger& Logger::operator << (int n)
 }
 
 
-Logger& Logger::operator << (unsigned int n)
+Logger& Logger::operator << (const unsigned int n)
 {
   cout << n;
   ofile << n;
@@ -119,7 +120,7 @@ Logger& Logger::operator << (unsigned int n)
   return *this;
 }
 
-Logger& Logger::operator << (double d)
+Logger& Logger::operator << (const double d)
 {
   cout << d;
   ofile << d;
