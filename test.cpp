@@ -26,10 +26,10 @@ void test_integer_sequence (int argc, char *argv[])
 
   cout << "sequence object..\n";
   timer.tic ();
-  utils::IntegerSequence sequence (0, limit, 1);
+  utils::IntegerSequence sequence (0, limit);
   int j = 0;
   while (sequence (j)) {
-    ///cout << i << " ";
+    //cout << j << " ";
   }
   time_elapsed = timer.toc ();
   cout << limit << " Time taken : "<< time_elapsed << endl;

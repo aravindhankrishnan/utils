@@ -9,7 +9,7 @@ struct IntegerSequence
   int end,
       step;
 
-  IntegerSequence (const int _start, const int _end, const int _step)
+  IntegerSequence (const int _start, const int _end, const int _step = 1)
   {
     counter = _start;
     end = _end;
