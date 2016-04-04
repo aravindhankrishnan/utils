@@ -15,4 +15,9 @@ add_library (utils SHARED timer.cpp\\
                           getfilename_with_timestamp.cpp\\
                           getfilebasename.cpp\\
                           getbasepath.cpp\\
-                          executablename.cpp)
+                          executablename.cpp\\
+                          integer_sequence.cpp)
+
+add_executable (test test.cpp)
+
+target_link_libraries (test utils)
