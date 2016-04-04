@@ -26,7 +26,7 @@ void test_integer_sequence (int argc, char *argv[])
 
   cout << "sequence object..\n";
   timer.tic ();
-  utils::IntegerSequence sequence (0, limit);
+  utils::IntegerSequence sequence (0, limit, -1);
   int j = 0;
   while (sequence (j)) {
     //cout << j << " ";
