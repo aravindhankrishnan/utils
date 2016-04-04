@@ -12,7 +12,7 @@ endif()
 add_library (utils SHARED timer.cpp\\
                           logger.cpp\\
                           systemtime.cpp\\
-                          getfilename.cpp\\
+                          getfilename_with_timestamp.cpp\\
                           getfilebasename.cpp\\
                           getbasepath.cpp\\
                           executablename.cpp)

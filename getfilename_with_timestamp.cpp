@@ -1,10 +1,10 @@
-#include "getfilename.h"
+#include "getfilename_with_timestamp.h"
 #include "systemtime.h"
 using namespace std;
 
 namespace utils {
 
-string getfilename (const string basename, const string extension)
+string getFilenameWithTimeStamp (const string basename, const string extension)
 {
   string time_str  = "";
   utils::getSystemTime (time_str);
