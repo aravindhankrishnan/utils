@@ -1,4 +1,6 @@
 #include "integer_sequence.h"
+#include <stdexcept>
+#include <sstream>
 
 namespace utils {
 
