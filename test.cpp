@@ -33,6 +33,15 @@ void test_integer_sequence (int argc, char *argv[])
   }
   time_elapsed = timer.toc ();
   cout << limit << " Time taken : "<< time_elapsed << endl;
+
+  timer.tic ();
+  sequence (2*limit, 3*limit);
+  j = 0;
+  while (sequence (j)) {
+    //cout << j << " ";
+  }
+  time_elapsed = timer.toc ();
+  cout << limit << " Time taken : "<< time_elapsed << endl;
 }
 
 int main (int argc, char *argv[])

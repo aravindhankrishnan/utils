@@ -18,6 +18,8 @@ struct IntegerSequence
 
   bool operator () (int& i);
 
+  void operator () (const int _start, const int _end, const int _step = 1);
+
   ~IntegerSequence ()
   {
   }
