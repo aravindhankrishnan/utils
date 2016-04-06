@@ -14,6 +14,7 @@ add_library (utils SHARED timer.cpp\\
                           systemtime.cpp\\
                           getfilename_with_timestamp.cpp\\
                           getfilebasename.cpp\\
+                          getfileextension.cpp\\
                           getbasepath.cpp\\
                           executablename.cpp\\
                           integer_sequence.cpp)
