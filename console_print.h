@@ -13,6 +13,12 @@
 
 namespace utils {
 
+const std::string color_red = "\033[0;31m",
+                  color_cyan = "\033[0;36m",
+                  default_system_color = "\033[0m";
+
+const std::string font_bold = "\033[1m";
+
 class ConsolePrint
 {
   protected:
@@ -21,18 +27,16 @@ class ConsolePrint
 
     ConsolePrint ()
     {
-      normal_escape_sequence = "\033[0m";
     }
 
     ~ConsolePrint ()
     {
     }
 
-    std::string color_escape_sequence,
-                normal_escape_sequence;
+    std::string color_escape_sequence;
 
     // this is the type of std::cout
-    typedef std::basic_ostream<char, std::char_traits<char> > CoutType;
+    typedef std::basic_ostream <char, std::char_traits<char> > CoutType;
 
     // this is the function signature of std::endl
     typedef CoutType& (*StandardEndLine)(CoutType&);
