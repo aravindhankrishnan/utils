@@ -28,7 +28,7 @@ class ConsolePrint
     ConsolePrint& operator << (const StandardEndLine manip);
 
     ConsolePrint& operator () (const std::string& message_type);
-    ConsolePrint& operator << (const std::string str);
+    ConsolePrint& operator << (const std::string& str);
     ConsolePrint& operator << (const char* str);
     ConsolePrint& operator << (const wchar_t* str);
     ConsolePrint& operator << (const char c);

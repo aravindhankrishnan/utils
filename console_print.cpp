@@ -46,7 +46,7 @@ ConsolePrint& ConsolePrint::operator () (const std::string& message_type)
   return *this;
 }
 
-ConsolePrint& ConsolePrint::operator << (const std::string str)
+ConsolePrint& ConsolePrint::operator << (const std::string& str)
 {
   cout << str;
   return *this;
