@@ -35,17 +35,11 @@ class ConsolePrint
 
     std::string color_escape_sequence;
 
-    // this is the type of std::cout
-    typedef std::basic_ostream <char, std::char_traits<char> > CoutType;
-
-    // this is the function signature of std::endl
-    typedef CoutType& (*StandardEndLine)(CoutType&);
-
-    // define an operator<< to take in std::endl
-    ConsolePrint& operator << (const StandardEndLine manip);
-
     ConsolePrint& operator () (const std::string& message_type);
+
+    ConsolePrint& operator << (const bool b);
     ConsolePrint& operator << (const std::string& str);
+    ConsolePrint& operator << (const std::wstring& str);
     ConsolePrint& operator << (const char* str);
     ConsolePrint& operator << (const wchar_t* str);
     ConsolePrint& operator << (const char c);
@@ -56,6 +50,17 @@ class ConsolePrint
     ConsolePrint& operator << (const float f);
     ConsolePrint& operator << (const long l);
     ConsolePrint& operator << (const unsigned long l);
+    ConsolePrint& operator << (const long long l);
+    ConsolePrint& operator << (const long double ld);
+
+    // this is the type of std::cout
+    typedef std::basic_ostream <char, std::char_traits<char> > CoutType;
+
+    // this is the function signature of std::endl
+    typedef CoutType& (*StandardEndLine)(CoutType&);
+
+    // define an operator<< to take in std::endl
+    ConsolePrint& operator << (const StandardEndLine manip);
 
   private:
 

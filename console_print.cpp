@@ -49,10 +49,28 @@ ConsolePrint& ConsolePrint::operator () (const std::string& message_type)
   return *this;
 }
 
+ConsolePrint& ConsolePrint::operator << (const bool b)
+{
+  cout << color_escape_sequence;
+  cout << b;
+  color_escape_sequence = default_system_color;
+  cout << color_escape_sequence;
+  return *this;
+}
+
 ConsolePrint& ConsolePrint::operator << (const std::string& str)
 {
   cout << color_escape_sequence;
   cout << str;
+  color_escape_sequence = default_system_color;
+  cout << color_escape_sequence;
+  return *this;
+}
+
+ConsolePrint& ConsolePrint::operator << (const std::wstring& wstr)
+{
+  cout << color_escape_sequence;
+  wcout << wstr;
   color_escape_sequence = default_system_color;
   cout << color_escape_sequence;
   return *this;
@@ -152,6 +170,24 @@ ConsolePrint& ConsolePrint::operator << (const unsigned long l)
 {
   cout << color_escape_sequence;
   cout << l;
+  color_escape_sequence = default_system_color;
+  cout << color_escape_sequence;
+  return *this;
+}
+
+ConsolePrint& ConsolePrint::operator << (const long long l)
+{
+  cout << color_escape_sequence;
+  cout << l;
+  color_escape_sequence = default_system_color;
+  cout << color_escape_sequence;
+  return *this;
+}
+
+ConsolePrint& ConsolePrint::operator << (const long double ld)
+{
+  cout << color_escape_sequence;
+  cout << ld;
   color_escape_sequence = default_system_color;
   cout << color_escape_sequence;
   return *this;
