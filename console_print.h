@@ -60,7 +60,7 @@ class ConsolePrint
     typedef CoutType& (*StandardEndLine)(CoutType&);
 
     // define an operator<< to take in std::endl
-    ConsolePrint& operator << (const StandardEndLine manip);
+    ConsolePrint& operator << (const StandardEndLine iomanipulator);
 
   private:
 

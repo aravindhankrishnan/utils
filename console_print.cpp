@@ -148,10 +148,10 @@ ConsolePrint& ConsolePrint::operator << (const float f)
   return *this;
 }
 
-ConsolePrint& ConsolePrint::operator << (const StandardEndLine manip)
+ConsolePrint& ConsolePrint::operator << (const StandardEndLine iomanipulator)
 {
   cout << color_escape_sequence;
-  cout << endl;
+  cout << iomanipulator;
   color_escape_sequence = default_system_color;
   cout << color_escape_sequence;
   return *this;
