@@ -1,16 +1,19 @@
 #include "timer.h"
+#include <sstream>
+using namespace std;
 
 namespace utils {
 
 void Timer::tic ()
 {
-  start = Bp::microsec_clock::local_time ();
+  start = std::chrono::high_resolution_clock::now ();
 }
 
 std::string Timer::toc () 
 {
-  end = Bp::microsec_clock::local_time ();
-  long val = (end-start).total_microseconds ();
+  end = std::chrono::high_resolution_clock::now ();
+  auto d = end - start;
+  long long val = std::chrono::duration_cast <std::chrono::nanoseconds> (d).count ();
 
   // 1 milli second = 1000 microseconds
   // 1 second = 1000 milliseconds

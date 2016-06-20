@@ -1,13 +1,8 @@
-
 cmake_minimum_required (VERSION 2.8 FATAL_ERROR)
 
 set (CMAKE_BUILD_TYPE DEBUG)
 
-find_package(boost)
-if (boost_found)
-	include_directories(${boost_include_dir})
-	add_definitions("-dhas_boost")
-endif()
+set (CMAKE_CXX_FLAGS "-std=c++11")
 
 add_library (utils SHARED timer.cpp
                           logger.cpp

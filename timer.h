@@ -1,14 +1,9 @@
 #pragma once
 
 #include <iostream>
-#include <exception>
-#include <cmath>
-
-#include <boost/date_time/posix_time/posix_time.hpp>
+#include <chrono>
 
 namespace utils {
-
-namespace Bp = boost::posix_time;
 
 class Timer
 {
@@ -31,16 +26,20 @@ class Timer
     // just to maintain backward compatibility
     std::string getResolution ();
 
+
+  protected:
+
+    std::chrono::high_resolution_clock::time_point start,
+                                                   end;
+
   private:
 
-    Bp::ptime start;
-    Bp::ptime end;
 
-    long hours,
-         minutes,
-         seconds,
-         milliseconds,
-         microseconds;
+    long long hours,
+              minutes,
+              seconds,
+              milliseconds,
+              microseconds;
 };
 
 
