@@ -14,34 +14,35 @@ void test_integer_sequence (int argc, char *argv[])
 
   cout << "for loop..\n";
   int limit = atoi (argv[1]);
-  string time_elapsed = "";
   utils::Timer timer;
-  timer.tic ();
+  timer.tic();
   int i = 0;
   for (i = 0; i <= limit; i++) {
     //cout << i << " ";
   }
-  time_elapsed = timer.toc ();
-  cout << limit << " Time taken : "<< time_elapsed << endl;
+  //cout << limit << " Time taken : "<< timer.toc() << endl;
+  //using float_seconds = std::chrono::duration<float>;
+  //float_seconds s = timer.toc();
+  cout << " Time taken : "<< timer.secondsClock(timer.toc()) << endl;
+  cout << " Time taken : "<< timer.millisecondsClock(timer.toc()) << endl;
+  cout << " Time taken : "<< timer.microsecondsClock(timer.toc()) << endl;
 
   cout << "sequence object..\n";
-  timer.tic ();
+  timer.tic();
   utils::IntegerSequence sequence (0, limit, 1);
   int j = 0;
-  while (sequence (j)) {
+  while (sequence(j)) {
     //cout << j << " ";
   }
-  time_elapsed = timer.toc ();
-  cout << limit << " Time taken : "<< time_elapsed << endl;
+  //cout << limit << " Time taken : "<< timer.toc() << endl;
 
-  timer.tic ();
-  sequence (2*limit, 3*limit);
+  timer.tic();
+  sequence(2*limit, 3*limit);
   j = 0;
-  while (sequence (j)) {
+  while (sequence(j)) {
     //cout << j << " ";
   }
-  time_elapsed = timer.toc ();
-  cout << limit << " Time taken : "<< time_elapsed << endl;
+  //cout << limit << " Time taken : "<< timer.toc() << endl;
 }
 
 int main (int argc, char *argv[])

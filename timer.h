@@ -1,47 +1,32 @@
 #pragma once
 
 #include <iostream>
-#include <exception>
-#include <cmath>
-
-#include <boost/date_time/posix_time/posix_time.hpp>
+#include <chrono>
 
 namespace utils {
-
-namespace Bp = boost::posix_time;
 
 class Timer
 {
 
   public:
 
-    Timer ()
+    Timer()
     {
     }
 
-    // just to maintain backward compatibility
-    Timer (const std::string in_resolution)
-    {
-    }
+    void tic();
 
-    void tic ();
+    std::string secondsClock(const std::chrono::microseconds& msec);
+    std::string millisecondsClock(const std::chrono::microseconds& msec);
+    std::string microsecondsClock(const std::chrono::microseconds& msec);
 
-    std::string toc ();
-
-    // just to maintain backward compatibility
-    std::string getResolution ();
+    std::chrono::microseconds toc();
 
   private:
 
-    Bp::ptime start;
-    Bp::ptime end;
 
-    long hours,
-         minutes,
-         seconds,
-         milliseconds,
-         microseconds;
+    std::chrono::steady_clock::time_point start,
+                                         end;
 };
-
 
 }
