@@ -6,6 +6,7 @@ set(CMAKE_BUILD_TYPE DEBUG)
 set(CMAKE_CXX_FLAGS "-std=c++11")
 
 add_library(utils SHARED timer.cpp
+                          profiler.cpp
                           logger.cpp
                           systemtime.cpp
                           getfilename_with_timestamp.cpp

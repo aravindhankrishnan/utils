@@ -5,8 +5,7 @@
 
 namespace utils {
 
-class Timer
-{
+class Timer {
 
   public:
 
@@ -23,7 +22,6 @@ class Timer
     std::chrono::microseconds toc();
 
   private:
-
 
     std::chrono::steady_clock::time_point start,
                                          end;
